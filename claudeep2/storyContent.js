@@ -7,12 +7,14 @@ const storyContent = [
 {
     text: "<span class='emphasis'>第二話『歪み』</span>",
     bg: "bg1",
-    speed: 0.1,
+    speed: 0.2,
     audio: "shadow3.m4a",
     lines: 4,
     scene: "scene1",
     sceneTitle: "歪み"
 },
+
+{ clear: true },
 
 {
     text: "東京の夜。\n窓からは星一つ見えない漆黒の闇が広がっていた。",
