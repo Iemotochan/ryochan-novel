@@ -1992,10 +1992,52 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingBar.style.width = progress + '%';
     }, intervalMs);
     
+    // 🎵========== 最初の音声ファイル事前読み込み ==========🎵
+    let firstAudioPreloaded = false;
+    let loadingComplete = false;
+    
+    function checkLoadingCompletion() {
+        if (loadingComplete && (firstAudioPreloaded || !storyContent[0]?.audio)) {
+            console.log('✅ [ローディング] 全て完了 - 本編開始');
+            clearInterval(loadingTimer);
+            loadingBar.style.width = '100%';
+            startAfterLoading();
+        }
+    }
+    
+    // 最初の音声ファイルを事前読み込み
+    if (storyContent[0]?.audio) {
+        const firstAudio = new Audio();
+        firstAudio.preload = 'auto';
+        firstAudio.src = 'audio/' + storyContent[0].audio;
+        
+        firstAudio.addEventListener('canplaythrough', () => {
+            console.log('✅ [ローディング] 最初の音声読み込み完了:', storyContent[0].audio);
+            firstAudioPreloaded = true;
+            checkLoadingCompletion();
+        }, { once: true });
+        
+        firstAudio.addEventListener('error', () => {
+            console.log('⚠️ [ローディング] 最初の音声読み込み失敗、続行');
+            firstAudioPreloaded = true;
+            checkLoadingCompletion();
+        }, { once: true });
+        
+        // タイムアウト（最大15秒）
+        setTimeout(() => {
+            if (!firstAudioPreloaded) {
+                console.log('⏰ [ローディング] 音声読み込みタイムアウト、続行');
+                firstAudioPreloaded = true;
+                checkLoadingCompletion();
+            }
+        }, 15000);
+    } else {
+        firstAudioPreloaded = true;
+    }
+    
     setTimeout(() => {
-        clearInterval(loadingTimer);
-        loadingBar.style.width = '100%';
-        startAfterLoading();
+        loadingComplete = true;
+        checkLoadingCompletion();
     }, totalTime);
     
     // 🎯========== イベントリスナー ==========🎯

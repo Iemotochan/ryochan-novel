@@ -1841,10 +1841,52 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingBar.style.width = progress + '%';
     }, intervalMs);
 
+    // 🎵========== First Audio File Preloading ==========🎵
+    let firstAudioPreloaded = false;
+    let loadingComplete = false;
+    
+    function checkLoadingCompletion() {
+        if (loadingComplete && (firstAudioPreloaded || !storyContent[0]?.audio)) {
+            console.log('✅ [Loading] All complete - Starting main content');
+            clearInterval(loadingTimer);
+            loadingBar.style.width = '100%';
+            startAfterLoading();
+        }
+    }
+    
+    // Preload first audio file
+    if (storyContent[0]?.audio) {
+        const firstAudio = new Audio();
+        firstAudio.preload = 'auto';
+        firstAudio.src = 'audio/' + storyContent[0].audio;
+        
+        firstAudio.addEventListener('canplaythrough', () => {
+            console.log('✅ [Loading] First audio loaded:', storyContent[0].audio);
+            firstAudioPreloaded = true;
+            checkLoadingCompletion();
+        }, { once: true });
+        
+        firstAudio.addEventListener('error', () => {
+            console.log('⚠️ [Loading] First audio failed, continuing');
+            firstAudioPreloaded = true;
+            checkLoadingCompletion();
+        }, { once: true });
+        
+        // Timeout (max 15 seconds)
+        setTimeout(() => {
+            if (!firstAudioPreloaded) {
+                console.log('⏰ [Loading] Audio loading timeout, continuing');
+                firstAudioPreloaded = true;
+                checkLoadingCompletion();
+            }
+        }, 15000);
+    } else {
+        firstAudioPreloaded = true;
+    }
+    
     setTimeout(() => {
-        clearInterval(loadingTimer);
-        loadingBar.style.width = '100%';
-        startAfterLoading();
+        loadingComplete = true;
+        checkLoadingCompletion();
     }, totalTime);
 
     // Event Listeners
