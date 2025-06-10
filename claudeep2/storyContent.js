@@ -9,7 +9,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.1,
     audio: "shadow3.m4a",
-    lines: 0,
+    lines: 4,
     scene: "scene1",
     sceneTitle: "歪み"
 },
@@ -19,7 +19,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.3,
     audio: "shadow3.m4a",
-    lines: 1
+    lines: 4
 },
 
 {
@@ -27,7 +27,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.4,
     audio: "shadow3.m4a",
-    lines: 2
+    lines: 4
 },
 
 { clear: true },
@@ -37,7 +37,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.4,
     audio: "shadow3.m4a",
-    lines: 2
+    lines: 1
 },
 
 {
@@ -46,7 +46,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.3,
     audio: "shadow3.m4a",
-    lines: 2
+    lines: 1
 },
 
 { clear: true },
