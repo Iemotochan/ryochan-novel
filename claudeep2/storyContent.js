@@ -9,7 +9,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.2,
     audio: "shadow3.m4a",
-    lines: 4,
+    lines: 0,
     scene: "scene1",
     sceneTitle: "歪み"
 },
@@ -21,7 +21,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.3,
     audio: "shadow3.m4a",
-    lines: 4
+    lines: 1
 },
 
 {
@@ -29,7 +29,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.4,
     audio: "shadow3.m4a",
-    lines: 4
+    lines: 1
 },
 
 { clear: true },
