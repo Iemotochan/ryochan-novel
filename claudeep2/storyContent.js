@@ -9,7 +9,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.1,
     audio: "shadow3.m4a",
-    lines: 1,
+    lines: 0,
     scene: "scene1",
     sceneTitle: "歪み"
 },
