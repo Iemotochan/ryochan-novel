@@ -14,7 +14,7 @@ const storyContent = [
     sceneTitle: "歪み"
 },
 
-{ clear: true },
+
 
 {
     text: "東京の夜。\n窓からは星一つ見えない漆黒の闇が広がっていた。",
