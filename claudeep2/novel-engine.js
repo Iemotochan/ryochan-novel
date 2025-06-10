@@ -1209,7 +1209,7 @@ function getTextLinesFromContent(content) {
 
 function applyLinesBasedSpacing(element, content) {
     const lines = getTextLinesFromContent(content);
-    element.classList.remove('lines-2', 'lines-4', 'title-text');
+    element.classList.remove('lines-1', 'lines-2', 'lines-3', 'lines-4', 'title-text');
     
     if (content.text && content.text.includes("<span class='emphasis'>")) {
         element.classList.add('title-text');
@@ -1217,12 +1217,18 @@ function applyLinesBasedSpacing(element, content) {
     } else if (lines === 0) {
         // lines: 0 の場合は何もクラスを追加しない（デフォルトスタイル）
         console.log('📐 [spacing] lines:0 - デフォルトスタイル適用');
-    } else if (lines <= 2) {
+    } else if (lines === 1) {
+        element.classList.add('lines-1');
+        console.log('📐 [spacing] 1列クラス適用 (lines:', lines, ')');
+    } else if (lines === 2) {
         element.classList.add('lines-2');
-        console.log('📐 [spacing] 2行クラス適用 (lines:', lines, ')');
+        console.log('📐 [spacing] 2列クラス適用 (lines:', lines, ')');
+    } else if (lines === 3) {
+        element.classList.add('lines-3');
+        console.log('📐 [spacing] 3列クラス適用 (lines:', lines, ')');
     } else {
         element.classList.add('lines-4');
-        console.log('📐 [spacing] 4行クラス適用 (lines:', lines, ')');
+        console.log('📐 [spacing] 4列クラス適用 (lines:', lines, ')');
     }
     
     element.setAttribute('data-lines', lines);
