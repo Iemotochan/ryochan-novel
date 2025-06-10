@@ -40,6 +40,8 @@ This is a Japanese visual novel engine called "RYOCHANの冒険" (RYOCHAN's Adve
 - iPad Safari video playback fixes
 - Touch controls with gesture validation
 - Responsive breakpoints (768px, 600px, 480px)
+- Dynamic viewport height adjustment for mobile browsers (CSS Custom Properties)
+- Optimized text positioning for narrow-height browsers
 
 ## Development Commands
 
@@ -55,12 +57,22 @@ npx serve .
 open claudeep2/index.html directly in browser
 ```
 
+**Git Deployment Workflow:**
+```bash
+# After making changes in Claude Code:
+git add .
+git commit -m "Description of changes"
+git push origin main
+# Changes automatically deploy to: https://iemotochan.github.io/ryochan-novel/
+```
+
 **File Modification Workflow:**
 1. Audio files: Place in `claudeep2/audio/` (M4A format)
 2. Video backgrounds: Place in `claudeep2/image/` (MP4 format) 
 3. Story content: Edit `storyContent.js` array
 4. Engine logic: Modify `novel-engine.js`
 5. Styling: Update `style.css`
+6. Deploy: Request Git upload to publish changes
 
 ## Story Content Format
 

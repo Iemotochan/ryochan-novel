@@ -899,7 +899,21 @@ function checkAutoModeAudioSwitch(currentContent, nextContent) {
     if (!isAutoMode || !nextContent) return false;
     
     const currentAudio = currentContent.audio;
-    const nextAudio = nextContent.audio;
+    
+    // 次の音声を持つコンテンツを探す（clearオブジェクトをスキップ）
+    let nextAudio = null;
+    let searchIndex = currentTextIndex + 1;
+    
+    while (searchIndex < storyContent.length) {
+        const content = storyContent[searchIndex];
+        if (content && content.audio) {
+            nextAudio = content.audio;
+            break;
+        }
+        searchIndex++;
+    }
+    
+    console.log('🔍 [音声切り替え] 検査:', currentAudio, '→', nextAudio, 'at index:', searchIndex);
     
     // 音声切り替えが必要な場合
     if (nextAudio && nextAudio !== currentAudio) {
@@ -935,7 +949,9 @@ function showAudioSwitchPrompt() {
         hideAudioSwitchPrompt();
     }
     
-    console.log('🎵 [プロンプト] 音声切り替えプロンプト表示');
+    console.log('🎵 [プロンプト] 音声切り替えプロンプト表示開始');
+    console.log('🎵 [プロンプト] isWaitingForAudioSwitchTouch:', isWaitingForAudioSwitchTouch);
+    console.log('🎵 [プロンプト] pendingAudioSwitch:', pendingAudioSwitch);
     
     audioSwitchPrompt = document.createElement('div');
     audioSwitchPrompt.className = 'audio-switch-prompt';
@@ -958,6 +974,7 @@ function showAudioSwitchPrompt() {
     `;
     
     document.body.appendChild(audioSwitchPrompt);
+    console.log('🎵 [プロンプト] DOM要素をbodyに追加完了');
     
     // タッチイベント設定
     audioSwitchPrompt.addEventListener('click', handleAudioSwitchTouch);
@@ -969,6 +986,7 @@ function showAudioSwitchPrompt() {
     // 美しいフェードイン
     requestAnimationFrame(() => {
         audioSwitchPrompt.classList.add('active');
+        console.log('🎵 [プロンプト] activeクラス追加、表示完了');
     });
 }
 
