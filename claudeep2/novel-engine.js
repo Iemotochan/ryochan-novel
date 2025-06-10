@@ -1185,7 +1185,7 @@ function createTouchExplosion(x, y) {
 
 // 📏========== lines指定システム ==========📏
 function getTextLinesFromContent(content) {
-    if (content.lines && typeof content.lines === 'number') {
+    if (content.hasOwnProperty('lines') && typeof content.lines === 'number') {
         console.log('📏 [lines] 指定されたlines値を使用:', content.lines);
         return content.lines;
     }
@@ -1214,12 +1214,15 @@ function applyLinesBasedSpacing(element, content) {
     if (content.text && content.text.includes("<span class='emphasis'>")) {
         element.classList.add('title-text');
         console.log('📐 [spacing] タイトルクラス適用');
+    } else if (lines === 0) {
+        // lines: 0 の場合は何もクラスを追加しない（デフォルトスタイル）
+        console.log('📐 [spacing] lines:0 - デフォルトスタイル適用');
     } else if (lines <= 2) {
         element.classList.add('lines-2');
-        console.log('📐 [spacing] 2行クラス適用');
+        console.log('📐 [spacing] 2行クラス適用 (lines:', lines, ')');
     } else {
         element.classList.add('lines-4');
-        console.log('📐 [spacing] 4行クラス適用');
+        console.log('📐 [spacing] 4行クラス適用 (lines:', lines, ')');
     }
     
     element.setAttribute('data-lines', lines);

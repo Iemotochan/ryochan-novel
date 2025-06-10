@@ -131,6 +131,51 @@ function ensurePromptAnimations() {
     }
 }
 
+// ========== Lines Management System ==========
+function getTextLinesFromContent(content) {
+    if (content.hasOwnProperty('lines') && typeof content.lines === 'number') {
+        console.log('📏 [lines] Using specified lines value:', content.lines);
+        return content.lines;
+    }
+    
+    if (!content || !content.text) return 2;
+    
+    const cleanText = content.text.replace(/<[^>]*>/g, '');
+    const length = cleanText.length;
+    
+    if (content.text.includes("<span class='emphasis'>")) {
+        console.log('📏 [lines] Title text detected - default 2 lines');
+        return 2;
+    } else if (length <= 35) {
+        console.log('📏 [lines] Short text detected - default 2 lines');
+        return 2;
+    } else {
+        console.log('📏 [lines] Long text detected - default 4 lines');
+        return 4;
+    }
+}
+
+function applyLinesBasedSpacing(element, content) {
+    const lines = getTextLinesFromContent(content);
+    element.classList.remove('lines-2', 'lines-4', 'title-text');
+    
+    if (content.text && content.text.includes("<span class='emphasis'>")) {
+        element.classList.add('title-text');
+        console.log('📐 [spacing] Title class applied');
+    } else if (lines === 0) {
+        // lines: 0 means use default style (no class added)
+        console.log('📐 [spacing] lines:0 - default style applied');
+    } else if (lines <= 2) {
+        element.classList.add('lines-2');
+        console.log('📐 [spacing] 2-line class applied (lines:', lines, ')');
+    } else {
+        element.classList.add('lines-4');
+        console.log('📐 [spacing] 4-line class applied (lines:', lines, ')');
+    }
+    
+    element.setAttribute('data-lines', lines);
+}
+
 // ========== 🎵 Audio Switch Prompt System ========== 
 function checkAutoModeAudioSwitch(currentContent, nextContent) {
     console.log('🔍 [Audio Switch Check] === DEBUG START ===');
@@ -1485,6 +1530,7 @@ function showNextText() {
 
             const p = document.createElement('p');
             p.className = 'text-paragraph';
+            applyLinesBasedSpacing(p, content);
             textContent.appendChild(p);
 
             while(textContent.children.length > MAX_PARAGRAPHS) {
