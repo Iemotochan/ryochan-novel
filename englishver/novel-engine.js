@@ -149,10 +149,22 @@ function checkAutoModeAudioSwitch(currentContent, nextContent) {
     }
 
     const currentAudio = currentContent.audio;
-    const nextAudio = nextContent.audio;
+    
+    // 次の音声を持つコンテンツを探す（clearオブジェクトをスキップ）
+    let nextAudio = null;
+    let searchIndex = currentTextIndex + 1;
+    
+    while (searchIndex < storyContent.length) {
+        const content = storyContent[searchIndex];
+        if (content && content.audio) {
+            nextAudio = content.audio;
+            break;
+        }
+        searchIndex++;
+    }
 
     console.log('  - Current audio:', currentAudio);
-    console.log('  - Next audio:', nextAudio);
+    console.log('  - Next audio found at index', searchIndex, ':', nextAudio);
 
     if (nextAudio && nextAudio !== currentAudio) {
         console.log('🎵 [Audio Switch Check] *** AUDIO SWITCH DETECTED ***');
