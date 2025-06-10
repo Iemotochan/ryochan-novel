@@ -19,7 +19,7 @@ const storyContent = [
     bg: "bg1",
     speed: 0.3,
     audio: "shadow3.m4a",
-    lines: 2
+    lines: 1
 },
 
 {
