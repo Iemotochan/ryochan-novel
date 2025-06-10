@@ -1181,7 +1181,7 @@ const storyContent = [
 
 {
     text: "その夜、サクラのアパートの窓辺に座ったRYOCHANは、\n街の明かりを見つめていた。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.4,
     lines: 2,
     scene: "scene3",
@@ -1192,7 +1192,7 @@ const storyContent = [
 
 {
     text: "彼の体は青い『氣』の光を静かに纏っていた。\nその光は以前より強く、安定していた。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.4,
     audio: "sakura2.m4a",
     lines: 2
@@ -1203,7 +1203,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "今日、私たちが成し遂げたことは\n単なる詐欺の阻止じゃないのよ。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 2
@@ -1211,7 +1211,7 @@ const storyContent = [
 
 {
     text: "日本の心と現代技術の真の融合。\n失われかけた『氣』の力の復活。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 2
@@ -1221,7 +1221,7 @@ const storyContent = [
 
 {
     text: "そして何より、一人一人の力が\n世界を変えることができるという証明よ。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 2
@@ -1230,7 +1230,7 @@ const storyContent = [
 {
     speaker: "RYOCHAN",
     text: "おいらも感じているワン。\nこの使命は、おいら一人のものじゃない。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 2
@@ -1240,7 +1240,7 @@ const storyContent = [
 
 {
     text: "みんなで守り、みんなで築いていくものなんだワン。\nこれが本当の『和』の力だワン。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 2
@@ -1249,7 +1249,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "でも戦いはまだ始まったばかり。\n今日は多くの人を守ることができたけれど、",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 2
@@ -1257,7 +1257,7 @@ const storyContent = [
 
 {
     text: "まだ見えない危険がたくさん潜んでいる。\nあなたと一緒なら、きっと乗り越えられるわ。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 2
@@ -1267,7 +1267,7 @@ const storyContent = [
 
 {
     text: "RYOCHANは深く頷いた。\n彼の中で、新しい決意が燃えていた。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.4,
     audio: "sakura2.m4a",
     lines: 2
@@ -1275,7 +1275,7 @@ const storyContent = [
 
 {
     text: "かつて『氣』は『気』に簡略化され、\nその本質が失われてしまった。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.4,
     audio: "sakura2.m4a",
     lines: 2
@@ -1285,7 +1285,7 @@ const storyContent = [
 
 {
     text: "しかし今、その力は彼らの中で再び息づき始めていた。\n守護の力として。愛の力として。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.4,
     audio: "sakura2.m4a",
     lines: 2
@@ -1293,7 +1293,7 @@ const storyContent = [
 
 {
     text: "希望の力として。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 1
@@ -1303,7 +1303,7 @@ const storyContent = [
 
 {
     text: "窓の外には都市の明かりが輝き、\nその光がRYOCHANとサクラの瞳に映り込んでいた。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.4,
     audio: "sakura2.m4a",
     lines: 2
@@ -1311,7 +1311,7 @@ const storyContent = [
 
 {
     text: "二人の絆から生まれた新たな物語が、\nここから始まろうとしていた。",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.3,
     audio: "sakura2.m4a",
     lines: 2
@@ -1321,7 +1321,7 @@ const storyContent = [
 
 {
     text: "<span class='emphasis'>つづく・・・</span>",
-    bg: "bg3",
+    bg: "bg15",
     speed: 0.4,
     audio: "sakura2.m4a",
     lines: 2
