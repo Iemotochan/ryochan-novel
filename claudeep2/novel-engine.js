@@ -789,7 +789,34 @@ function adjustFontSize(direction) {
         applyFontSize();
         updateFontSizeButtons();
         console.log('📝 [フォント] フォントサイズ変更:', oldSize, '→', currentFontSize, 'スケール:', fontSizeScale[currentFontSize]);
+        
+        // 既存のテキストの行間も再計算
+        reapplyAllSpacing();
     }
+}
+
+function reapplyAllSpacing() {
+    console.log('📐 [spacing] 全テキストの行間再計算開始');
+    
+    const allParagraphs = textContent.querySelectorAll('.text-paragraph');
+    allParagraphs.forEach((paragraph, index) => {
+        const lines = parseInt(paragraph.getAttribute('data-lines')) || 2;
+        const textLength = parseInt(paragraph.getAttribute('data-text-length')) || 0;
+        const text = paragraph.textContent || '';
+        
+        // content オブジェクトを再構成
+        const reconstructedContent = {
+            text: text,
+            lines: lines
+        };
+        
+        // 行間を再適用（emphasis チェックも含む）
+        applyLinesBasedSpacing(paragraph, reconstructedContent);
+        
+        console.log('📐 [spacing] 再適用完了:', index, 'lines:', lines, 'textLength:', textLength);
+    });
+    
+    console.log('📐 [spacing] 全テキストの行間再計算完了:', allParagraphs.length, '個');
 }
 
 function applyFontSize() {
@@ -1211,27 +1238,103 @@ function applyLinesBasedSpacing(element, content) {
     const lines = getTextLinesFromContent(content);
     element.classList.remove('lines-1', 'lines-2', 'lines-3', 'lines-4', 'title-text');
     
-    if (content.text && content.text.includes("<span class='emphasis'>")) {
+    // 動的スタイル計算
+    const fontSize = getCurrentFontSizePx();
+    const textLength = content.text ? content.text.replace(/<[^>]*>/g, '').length : 0;
+    const isEmphasis = content.text && content.text.includes("<span class='emphasis'>");
+    
+    console.log('📐 [spacing] 動的計算開始 - フォントサイズ:', fontSize + 'px', 'テキスト長:', textLength, 'lines:', lines);
+    
+    if (isEmphasis) {
         element.classList.add('title-text');
         console.log('📐 [spacing] タイトルクラス適用');
-    } else if (lines === 0) {
-        // lines: 0 の場合は何もクラスを追加しない（デフォルトスタイル）
-        console.log('📐 [spacing] lines:0 - デフォルトスタイル適用');
-    } else if (lines === 1) {
-        element.classList.add('lines-1');
-        console.log('📐 [spacing] 1列クラス適用 (lines:', lines, ')');
-    } else if (lines === 2) {
-        element.classList.add('lines-2');
-        console.log('📐 [spacing] 2列クラス適用 (lines:', lines, ')');
-    } else if (lines === 3) {
-        element.classList.add('lines-3');
-        console.log('📐 [spacing] 3列クラス適用 (lines:', lines, ')');
     } else {
-        element.classList.add('lines-4');
-        console.log('📐 [spacing] 4列クラス適用 (lines:', lines, ')');
+        // 動的に最適な間隔を計算
+        const optimalSpacing = calculateOptimalSpacing(lines, fontSize, textLength);
+        element.style.marginRight = optimalSpacing.marginRight;
+        element.style.minWidth = optimalSpacing.minWidth;
+        element.style.maxWidth = optimalSpacing.maxWidth;
+        element.style.lineHeight = optimalSpacing.lineHeight;
+        
+        console.log('📐 [spacing] 動的スタイル適用:', optimalSpacing);
+        
+        // デバッグ用のクラスも付与
+        if (lines === 0) {
+            console.log('📐 [spacing] lines:0 - 動的デフォルトスタイル');
+        } else {
+            element.classList.add(`lines-${lines}`);
+            console.log('📐 [spacing] lines:' + lines + ' - 動的計算スタイル');
+        }
     }
     
     element.setAttribute('data-lines', lines);
+    element.setAttribute('data-font-size', fontSize);
+    element.setAttribute('data-text-length', textLength);
+}
+
+function getCurrentFontSizePx() {
+    const scale = fontSizeScale[currentFontSize] || 1.0;
+    const baseFontSize = 24; // ベースフォントサイズ
+    return Math.round(baseFontSize * scale);
+}
+
+function calculateOptimalSpacing(lines, fontSize, textLength) {
+    // ベース値（lines指定がない場合の標準）
+    let baseMarginVw = 4;
+    let baseMinWidth = 50;
+    let baseMaxWidth = 90;
+    let baseLineHeight = 1.5;
+    
+    // lines指定による調整
+    if (lines === 1) {
+        baseMarginVw = 2.5;
+        baseMinWidth = 40;
+        baseMaxWidth = 70;
+        baseLineHeight = 1.4;
+    } else if (lines === 2) {
+        baseMarginVw = 3.5;
+        baseMinWidth = 50;
+        baseMaxWidth = 85;
+        baseLineHeight = 1.45;
+    } else if (lines === 3) {
+        baseMarginVw = 5;
+        baseMinWidth = 60;
+        baseMaxWidth = 100;
+        baseLineHeight = 1.5;
+    } else if (lines === 4) {
+        baseMarginVw = 6.5;
+        baseMinWidth = 70;
+        baseMaxWidth = 115;
+        baseLineHeight = 1.55;
+    }
+    
+    // フォントサイズによる調整
+    const fontScale = fontSize / 24; // 24pxがベース
+    const adjustedMargin = baseMarginVw + (fontScale - 1) * 2;
+    const adjustedMinWidth = Math.round(baseMinWidth * fontScale);
+    const adjustedMaxWidth = Math.round(baseMaxWidth * fontScale);
+    
+    // テキスト長による微調整
+    const lengthFactor = Math.min(textLength / 50, 1.5); // 50文字をベースに最大1.5倍
+    const finalMargin = adjustedMargin + lengthFactor * 0.5;
+    
+    // レスポンシブ調整
+    const screenWidth = window.innerWidth;
+    let responsiveScale = 1;
+    if (screenWidth <= 480) {
+        responsiveScale = 0.7;
+    } else if (screenWidth <= 600) {
+        responsiveScale = 0.8;
+    } else if (screenWidth <= 768) {
+        responsiveScale = 0.9;
+    }
+    
+    return {
+        marginRight: (finalMargin * responsiveScale).toFixed(1) + 'vw',
+        minWidth: Math.round(adjustedMinWidth * responsiveScale) + 'px',
+        maxWidth: Math.round(adjustedMaxWidth * responsiveScale) + 'px',
+        lineHeight: (baseLineHeight - (fontScale - 1) * 0.1).toFixed(2)
+    };
 }
 
 // 📝========== テキスト管理システム ==========📝
