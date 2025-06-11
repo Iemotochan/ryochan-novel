@@ -255,7 +255,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "Hello, you must be RYO-CHAN that my grandfather spoke of.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2,
@@ -265,7 +265,7 @@ const storyContent = [
 
 {
     text: "A clear voice rang out, pulling RYO-CHAN's thoughts back to reality. Turning around, he saw a young woman standing there.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.4,
     audio: "sakura1.m4a",
     lines: 2
@@ -275,7 +275,7 @@ const storyContent = [
 
 {
     text: "She wore a school uniform and carried an air of classical elegance.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.4,
     audio: "sakura1.m4a",
     lines: 1
@@ -283,7 +283,7 @@ const storyContent = [
 
 {
     text: "Despite being only 17, her eyes held deep wisdom and the determined light of someone protecting something precious and fading.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.4,
     audio: "sakura1.m4a",
     lines: 2
@@ -294,7 +294,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "I'm Sakura. I'm a high school student, but my grandfather has taught me about Japan's ancient culture.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2
@@ -302,7 +302,7 @@ const storyContent = [
 
 {
     text: "Particularly, I've been studying how to apply the concept of 'Ki' in the modern world.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2
@@ -313,7 +313,7 @@ const storyContent = [
 {
     speaker: "RYO-CHAN",
     text: "'Ki'... I can see it now too. But I don't know how to use this power...",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2
@@ -321,7 +321,7 @@ const storyContent = [
 
 {
     text: "Sakura's expression brightened. As if she had found the answer she'd been searching for all her life.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.4,
     audio: "sakura1.m4a",
     lines: 2
@@ -332,7 +332,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "I knew it! My grandfather always said this when he was the shrine caretaker.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2
@@ -340,7 +340,7 @@ const storyContent = [
 
 {
     text: "'Someday, on a full moon night, a guardian with the power to see the lost Ki will appear.'",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2
@@ -350,7 +350,7 @@ const storyContent = [
 
 {
     text: "She sat down near RYO-CHAN. Her gesture embodied both traditional Japanese grace and modern youthful spirit.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.4,
     audio: "sakura1.m4a",
     lines: 2
@@ -359,7 +359,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "I'll never forget my grandfather's final words...",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 1
@@ -369,7 +369,7 @@ const storyContent = [
 
 {
     text: "'Sakura, the soul of Japan never dies. Even though the character '氣' was changed to '気',",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2
@@ -377,7 +377,7 @@ const storyContent = [
 
 {
     text: "true power will transform and surely be reborn. In your generation, you must witness this.'",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2
@@ -388,7 +388,7 @@ const storyContent = [
 {
     speaker: "RYO-CHAN",
     text: "That power... is within me?",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 1
@@ -397,7 +397,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "Yes. But power alone has no meaning. What matters is how you use that power.",
-    bg: "bg15",
+    bg: "bg3",
     speed: 0.5,
     audio: "sakura1.m4a",
     lines: 2
