@@ -778,7 +778,7 @@ const storyContent = [
 { clear: true },
 
 {
-    text: "A beautiful interface appeared on the screen. Cherry blossoms danced in a design featuring traditional Japanese colors.",
+    text: "The moment Sakura's fingers pressed the final enter key, the screen quietly transformed.",
     bg: "bg7",
     speed: 0.4,
     audio: "ryoscan1.m4a",
@@ -786,12 +786,62 @@ const storyContent = [
 },
 
 {
-    text: "Yet it incorporated cutting-edge AI technology. It was a modern version of 'wakon-yōsai' - Japanese spirit with Western learning.",
+    speaker: "SAKURA",
+    text: "It's done...!",
     bg: "bg7",
     speed: 0.4,
     audio: "ryoscan1.m4a",
     lines: 2
 },
+
+{ clear: true },
+
+{
+    text: "Pale turquoise blue light reflected in her eyes. On the laptop display, the prototype named 'RYO SCAN' had come to life.",
+    bg: "bg7",
+    speed: 0.4,
+    audio: "ryoscan1.m4a",
+    lines: 2
+},
+
+{
+    text: "It could hardly be called refined yet. Simple geometric patterns against a dark blue background. A small circular icon sat at the center, surrounded by colorful nodes floating quietly in space.",
+    bg: "bg7",
+    speed: 0.4,
+    audio: "ryoscan1.m4a",
+    lines: 2
+},
+
+{
+    text: "Blue, green, yellow, red—like a solar system drawn by a child, primitive yet somehow endearing.",
+    bg: "bg7",
+    speed: 0.4,
+    audio: "ryoscan1.m4a",
+    lines: 2
+},
+
+
+
+{ clear: true },
+
+{
+    speaker: "SAKURA",
+    text: "\"This is... the first step to visualizing 'Ki'\"",
+    bg: "bg7",
+    speed: 0.3,
+    audio: "ryoscan1.m4a",
+    lines: 2
+},
+
+{
+    text: "Sakura whispered softly as she gazed at the screen.",
+    bg: "bg7",
+    speed: 0.3,
+    audio: "ryoscan1.m4a",
+    lines: 2
+},
+
+
 
 { clear: true },
 
@@ -1200,7 +1250,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "What we accomplished today wasn't just stopping a scam.",
-    bg: "bg15",
+    bg: "bg16",
     speed: 0.5,
     audio: "sakura2.m4a",
     lines: 2
@@ -1208,7 +1258,7 @@ const storyContent = [
 
 {
     text: "It was the true fusion of Japanese heart and modern technology. The revival of the lost power of 'Ki'.",
-    bg: "bg15",
+    bg: "bg16",
     speed: 0.5,
     audio: "sakura2.m4a",
     lines: 2
@@ -1218,7 +1268,7 @@ const storyContent = [
 
 {
     text: "And above all, proof that each individual's power can change the world.",
-    bg: "bg15",
+    bg: "bg16",
     speed: 0.5,
     audio: "sakura2.m4a",
     lines: 2
@@ -1246,7 +1296,7 @@ const storyContent = [
 {
     speaker: "SAKURA",
     text: "But the battle has only just begun. Today we protected many people, but",
-    bg: "bg15",
+    bg: "bg16",
     speed: 0.5,
     audio: "sakura2.m4a",
     lines: 2
@@ -1254,7 +1304,7 @@ const storyContent = [
 
 {
     text: "there are still many unseen dangers lurking. With you by my side, I'm sure we can overcome them.",
-    bg: "bg15",
+    bg: "bg16",
     speed: 0.5,
     audio: "sakura2.m4a",
     lines: 2
@@ -1307,8 +1357,8 @@ const storyContent = [
 },
 
 {
-    text: "A new story born from their bond was about to begin.",
-    bg: "bg15",
+    text: "A new story born from our bond is about to begin.",
+    bg: "bg16",
     speed: 0.5,
     audio: "sakura2.m4a",
     lines: 2
@@ -1318,7 +1368,7 @@ const storyContent = [
 
 {
     text: "<span class='emphasis'>To be continued...</span>",
-    bg: "bg15",
+    bg: "bg16",
     speed: 0.4,
     audio: "sakura2.m4a",
     lines: 2
