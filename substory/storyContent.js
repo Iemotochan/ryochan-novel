@@ -2,7 +2,7 @@ console.log('📚 [storyContent] 分岐ストーリー読み込み開始...');
 
 // ========== 分岐ストーリー用 storyContent ==========
 
-const storyContent = [
+let storyContent = [
     // ========== 第五話：偽りの救い ==========
     {
         text: "<span class='emphasis'>第五話『偽りの救い』</span>",
@@ -1035,6 +1035,268 @@ const storyBranches = {
             speed: 0.3,
             audio: "success1.m4a",
             lines: 3
+        },
+        
+        // 🌙========== 壮大な分岐への導入 ==========🌙
+        {
+            text: "エピソード5をクリアした夜。\n\n君は一人、窓辺で夜空を見上げていた。",
+            bg: "bg14",
+            speed: 0.4,
+            audio: "moonlight1.m4a",
+            lines: 2,
+            scene: "epilogue_start",
+            sceneTitle: "新たな始まり",
+            clear: true
+        },
+        
+        {
+            text: "氣の力を使いこなせるようになった今、\n世界は以前とは違って見える。",
+            bg: "bg14",
+            speed: 0.3,
+            lines: 2
+        },
+        
+        {
+            text: "そんな時、携帯電話が静かに振動した。\n\n深夜2時の着信。発信者不明。",
+            bg: "bg14",
+            speed: 0.4,
+            audio: "shadow4.m4a",
+            lines: 2
+        },
+        
+        {
+            type: 'choice',
+            text: "この着信が、すべての真実への\n扉を開くことになる。\n\n電話に出ますか？",
+            bg: "bg14",
+            lines: 3,
+            options: [
+                { 
+                    label: '電話に出る', 
+                    branch: 'prologue_investigation',
+                    description: '運命の扉を開く...',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('acceptedCall');
+                            flagManager.addPoints('mysteryPoints', 1);
+                        }
+                    }
+                },
+                { 
+                    label: '無視して寝る', 
+                    branch: 'peaceful_ending',
+                    description: '平穏な日常を選ぶ...',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('rejectedCall');
+                        }
+                    }
+                },
+                { 
+                    label: '録音して後で確認', 
+                    branch: 'cautious_approach',
+                    description: '慎重に行動する...',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('cautiousNature');
+                            flagManager.addPoints('mysteryPoints', 2);
+                        }
+                    }
+                }
+            ]
+        },
+        
+        // ========== 第2分岐点：調査開始 ==========
+        {
+            text: "翌朝、君の元に新たな情報が届いた。\n事件は想像以上に複雑だった。",
+            bg: "bg2",
+            speed: 0.4,
+            audio: "ryoscan1.m4a",
+            lines: 2,
+            scene: "morning_investigation",
+            sceneTitle: "調査の始まり",
+            clear: true
+        },
+        {
+            text: "3つの手がかりが浮上した：\n怪しいメール、現場の薬品、証人の証言。",
+            bg: "bg3",
+            speed: 0.3,
+            lines: 2
+        },
+        {
+            type: 'choice',
+            text: "どの手がかりから調査を始める？",
+            bg: "bg3",
+            options: [
+                { 
+                    label: 'メールの送信元を追跡', 
+                    branch: 'email_investigation',
+                    description: 'デジタルフォレンジック',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('digitalInvestigator');
+                            flagManager.addPoints('mysteryPoints', 2);
+                        }
+                    }
+                },
+                { 
+                    label: '現場の物的証拠を分析', 
+                    branch: 'physical_evidence',
+                    description: '科学的なアプローチ',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('physicalInvestigator');
+                            flagManager.addPoints('mysteryPoints', 2);
+                        }
+                    }
+                },
+                { 
+                    label: '証人に聞き込み', 
+                    branch: 'human_relations',
+                    description: '人間関係を重視',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('socialInvestigator');
+                            flagManager.addPoints('trustPoints', 2);
+                        }
+                    }
+                },
+                { 
+                    label: '氣の力で真相を探る', 
+                    branch: 'psychic_investigation',
+                    description: '超自然的な捜査',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('psychicInvestigator');
+                            flagManager.addPoints('mysteryPoints', 3);
+                        }
+                    }
+                }
+            ]
+        },
+        
+        // ========== 第3分岐点：仲間との関係 ==========
+        {
+            text: "調査中、カゲマルとサクラの様子がおかしいことに気づく。\n二人は何かを隠している？",
+            bg: "bg4",
+            speed: 0.4,
+            audio: "shadow3.m4a",
+            lines: 2,
+            scene: "friends_suspicion",
+            sceneTitle: "仲間への疑念",
+            clear: true
+        },
+        {
+            type: 'choice',
+            text: "仲間をどう思う？",
+            bg: "bg4",
+            options: [
+                { 
+                    label: '完全に信頼する', 
+                    branch: 'trust_friends_completely',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('trustedKagemaru');
+                            flagManager.setFlag('trustedSakura');
+                            flagManager.addPoints('trustPoints', 3);
+                        }
+                    }
+                },
+                { 
+                    label: '疑いを持つ', 
+                    branch: 'suspect_friends',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('doubtedKagemaru');
+                            flagManager.setFlag('doubtedSakura');
+                            flagManager.addPoints('mysteryPoints', 2);
+                        }
+                    }
+                },
+                { 
+                    label: '直接問いただす', 
+                    branch: 'confront_friends',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('directApproach');
+                            flagManager.addPoints('trustPoints', 1);
+                        }
+                    }
+                },
+                { 
+                    label: '密かに監視する', 
+                    branch: 'spy_on_friends',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('secretWatcher');
+                            flagManager.addPoints('mysteryPoints', 3);
+                        }
+                    }
+                }
+            ]
+        },
+        
+        // ========== 第4分岐点：記憶の断片 ==========
+        {
+            text: "突然、頭に激痛が走る。\n失われた記憶の断片が蘇ってくる...",
+            bg: "bg5",
+            speed: 0.3,
+            audio: "shadow4.m4a",
+            lines: 2,
+            scene: "memory_fragments",
+            sceneTitle: "失われた記憶",
+            clear: true
+        },
+        {
+            text: "白い部屋...実験台...そして君を見つめる冷たい瞳。\nこれは...夢？それとも記憶？",
+            bg: "bg6",
+            speed: 0.4,
+            lines: 2
+        },
+        {
+            type: 'choice',
+            text: "この記憶にどう向き合う？",
+            bg: "bg6",
+            options: [
+                { 
+                    label: '記憶を辿る', 
+                    branch: 'pursue_memories',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('memorySeeker');
+                            flagManager.addPoints('mysteryPoints', 4);
+                        }
+                    }
+                },
+                { 
+                    label: '記憶を封印する', 
+                    branch: 'suppress_memories',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('memorySuppressor');
+                            flagManager.addPoints('trustPoints', 2);
+                        }
+                    }
+                },
+                { 
+                    label: '仲間に相談する', 
+                    branch: 'consult_about_memories',
+                    condition: { or: ['trustedKagemaru', 'trustedSakura'] },
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.addPoints('trustPoints', 2);
+                        }
+                    }
+                },
+                { 
+                    label: '専門家に相談する', 
+                    branch: 'seek_professional_help',
+                    action: () => {
+                        if (typeof flagManager !== 'undefined') {
+                            flagManager.setFlag('rationalApproach');
+                        }
+                    }
+                }
+            ]
         }
     ]
 };
@@ -1059,8 +1321,9 @@ const buildSceneMap = () => {
     });
 
     // 分岐ストーリーのシーンも追加
-    Object.keys(storyBranches).forEach(branchKey => {
-        storyBranches[branchKey].forEach((content, index) => {
+    if (typeof window.storyBranches !== 'undefined') {
+        Object.keys(window.storyBranches).forEach(branchKey => {
+            window.storyBranches[branchKey].forEach((content, index) => {
             if (content.scene) {
                 const sceneInfo = {
                     id: content.scene,
@@ -1074,6 +1337,7 @@ const buildSceneMap = () => {
             }
         });
     });
+    }
     
     return { sceneMap, sceneList };
 };

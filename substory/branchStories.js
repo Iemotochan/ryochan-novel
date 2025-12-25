@@ -2,7 +2,7 @@ console.log('🌸 [分岐ストーリー] ブランチストーリー読み込�
 
 // ========== 分岐ストーリー定義 ==========
 
-const storyBranches = {
+let originalStoryBranches = {
     // カゲマル分岐：医療の闇と利権構造
     kagemaru: [
         {
@@ -331,5 +331,13 @@ const branchingPoint = {
         }
     ]
 };
+
+// 統合ストーリーブランチ（グローバル変数が未定義の場合のみ作成）
+if (typeof window.storyBranches === 'undefined') {
+    window.storyBranches = { ...originalStoryBranches };
+} else {
+    // 既存のstoryBranchesに追加
+    Object.assign(window.storyBranches, originalStoryBranches);
+}
 
 console.log('🌸 [分岐ストーリー] ブランチストーリー読み込み完了');

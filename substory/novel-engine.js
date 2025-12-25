@@ -28,6 +28,13 @@ let choiceElements = [];
 let unlockModal = null;
 let isShowingUnlockContent = false;
 
+// 🎯========== 拡張分岐システム変数 ==========🎯
+let currentBranchName = 'main';
+let branchHistory = [];
+let timedChoiceTimer = null;
+let multiChoiceSelections = [];
+let currentLoopCount = 0;
+
 // 🎵========== ローディング画面音声許可システム ==========🎵
 let loadingAudioEnabled = false;
 let isLoadingPhase = true;
@@ -1334,8 +1341,13 @@ function showChoices(branchData) {
 }
 
 // 🌸========== 分岐システム：選択ボタン表示 ==========🌸
-function showChoiceButtons(choices) {
+function showChoiceButtons(choices, callback) {
     console.log('🌸 [分岐] 選択ボタン表示:', choices);
+    
+    if (!choices || !Array.isArray(choices)) {
+        console.error('❌ [分岐] choices が配列ではありません:', choices);
+        return;
+    }
     
     const container = document.createElement('div');
     container.id = 'choiceContainer';
@@ -1353,10 +1365,26 @@ function showChoiceButtons(choices) {
         }
         
         const btn = document.createElement('button');
-        btn.textContent = choice.text;
+        btn.textContent = choice.label || choice.text;
         btn.className = 'choice-button';
         btn.setAttribute('data-choice-index', index);
-        btn.onclick = () => selectBranch(choice);
+        btn.onclick = () => {
+            // コールバックを実行（時限選択のタイマークリア用）
+            if (callback && typeof callback === 'function') {
+                callback();
+            }
+            
+            // 選択肢のアクションを実行
+            if (choice.action && typeof choice.action === 'function') {
+                try {
+                    choice.action();
+                } catch (error) {
+                    console.error('❌ [分岐] 選択肢アクション実行エラー:', error);
+                }
+            }
+            
+            selectBranch(choice);
+        };
         
         btnWrapper.appendChild(btn);
         container.appendChild(btnWrapper);
@@ -1396,6 +1424,50 @@ function selectBranch(choice) {
         setTimeout(() => {
             showNextText();
         }, 600);
+        return;
+    }
+    
+    // 分岐ストーリーにジャンプ
+    const branchName = choice.branch || choice;
+    if (typeof branchName === 'string') {
+        loadBranchStory(branchName);
+    } else {
+        console.error('❌ [分岐] 無効な分岐指定:', choice);
+    }
+}
+
+// 🔄========== 分岐ストーリー読み込み関数 ==========🔄
+function loadBranchStory(branchName) {
+    console.log('📚 [読み込み] 分岐ストーリー:', branchName);
+    
+    let branchContent = null;
+    
+    // 複雑な分岐を優先的にチェック
+    if (typeof complexStoryBranches !== 'undefined' && complexStoryBranches[branchName]) {
+        branchContent = complexStoryBranches[branchName];
+        console.log('🌙 [読み込み] 複雑な分岐ストーリーを使用');
+    } else if (typeof additionalBranches !== 'undefined' && additionalBranches[branchName]) {
+        branchContent = additionalBranches[branchName];
+        console.log('🌸 [読み込み] 追加分岐ストーリーを使用');
+    } else if (typeof window.storyBranches !== 'undefined' && window.storyBranches[branchName]) {
+        branchContent = window.storyBranches[branchName];
+        console.log('🌿 [読み込み] 基本分岐ストーリーを使用');
+    }
+    
+    if (branchContent) {
+        currentTextIndex = 0;
+        storyContent = branchContent;
+        
+        clearAllText();
+        
+        setTimeout(() => {
+            showNextText();
+        }, 600);
+    } else {
+        console.error('❌ [読み込み] 分岐ストーリーが見つかりません:', branchName);
+        // フォールバック: メインストーリーを続行
+        isInBranchMode = false;
+        showNextText();
     }
 }
 
@@ -1725,6 +1797,51 @@ function showNextText() {
             return;
         }
         
+        // 🌙========== 拡張分岐システム：新しい選択タイプ ==========🌙
+        if (content.type === 'timedChoice') {
+            console.log('⏱️ [分岐] 時限選択ノードを検出:', content);
+            if (typeof showTimedChoice === 'function') {
+                showTimedChoice(content);
+            } else {
+                console.warn('⚠️ [分岐] showTimedChoice関数が見つかりません。通常の選択として処理します。');
+                showChoices(content);
+            }
+            return;
+        }
+        
+        if (content.type === 'conditionalChoice') {
+            console.log('🔍 [分岐] 条件付き選択ノードを検出:', content);
+            if (typeof showConditionalChoice === 'function') {
+                showConditionalChoice(content);
+            } else {
+                console.warn('⚠️ [分岐] showConditionalChoice関数が見つかりません。通常の選択として処理します。');
+                showChoices(content);
+            }
+            return;
+        }
+        
+        if (content.type === 'multiChoice') {
+            console.log('📋 [分岐] 複数選択ノードを検出:', content);
+            if (typeof showMultiChoice === 'function') {
+                showMultiChoice(content);
+            } else {
+                console.warn('⚠️ [分岐] showMultiChoice関数が見つかりません。通常の選択として処理します。');
+                showChoices(content);
+            }
+            return;
+        }
+        
+        if (content.type === 'ending') {
+            console.log('🏁 [分岐] エンディングノードを検出:', content);
+            if (typeof showEndingNode === 'function') {
+                showEndingNode(content);
+            } else {
+                console.warn('⚠️ [分岐] showEndingNode関数が見つかりません。通常のテキストとして処理します。');
+                showTextContent(content);
+            }
+            return;
+        }
+        
         // 🎁========== アンロック検知 ==========🎁
         if (content.type === 'unlock') {
             console.log('🎁 [分岐] アンロックノードを検出:', content);
@@ -1804,7 +1921,7 @@ function showTextContent(content) {
         // 🌸========== 分岐システム専用：タイプライター完了後の処理 ==========🌸
         if (content.type === 'choice' && isInBranchMode) {
             // 選択肢の場合：選択ボタンを表示
-            setTimeout(() => showChoiceButtons(content.choices), 800);
+            setTimeout(() => showChoiceButtons(content.options || content.choices), 800);
             return;
         }
         

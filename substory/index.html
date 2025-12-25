@@ -158,6 +158,25 @@
         <div class="background" id="bg12"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo212.mp4" type="video/mp4"></video></div>
         <div class="background" id="bg13"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo213.mp4" type="video/mp4"></video></div>
         <div class="background" id="bg14"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo214.mp4" type="video/mp4"></video></div>
+        
+        <!-- 🌙 拡張背景動画 -->
+        <div class="background" id="bg15"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo21.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg16"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo22.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg17"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo23.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg18"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo24.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg19"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo25.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg20"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo26.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg21"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo27.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg22"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo28.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg23"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo29.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg24"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo210.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg25"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo211.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg26"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo212.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg27"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo213.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg28"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo214.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg29"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo21.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg30"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo22.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg31"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo23.mp4" type="video/mp4"></video></div>
 
         <div class="text-container" id="textContainer"><div class="text-content" id="textContent"></div></div>
         <div id="click-prompt">タップで次へ</div>
@@ -399,8 +418,23 @@
     })();
     </script>
 
-    <!-- ========== JavaScriptファイル ========== -->
+    <!-- ========== JavaScriptファイル（読み込み順序重要） ========== -->
+    <script src="flagSystem.js"></script>
     <script src="storyContent.js"></script>
+    <script src="branchStories.js"></script>
+    <script src="complexBranches.js"></script>
+    <script src="moreBranches.js"></script>
+    <script src="peaceful_ending.js"></script>
+    <script src="missingBranches.js"></script>
     <script src="novel-engine.js"></script>
+    <script src="extendedEngine.js"></script>
+    <script src="sceneNavigation.js"></script>
+    <script src="enhancedBranching.js"></script>
+    <script src="fullBranchStories.js"></script>
+    <script src="additionalStoryBranches.js"></script>
+    <script src="finalStoryCompleter.js"></script>
+    <script src="massiveBranchExpansion.js"></script>
+    <script src="branchConnector.js"></script>
+    <script src="skipAndContinueSystem.js"></script>
 </body>
 </html>

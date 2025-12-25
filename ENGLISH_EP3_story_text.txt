@@ -1,0 +1,403 @@
+Episode 3: Spider's Web - English Story Text
+==============================================
+
+========== Scene 1: The Arrogance of Engineers ==========
+
+Episode 3 『Spider's Web』
+
+Late night, hacker group hideout.
+One week has passed since their humiliating defeat.
+
+The leader's desk is piled high with detailed analysis reports on RYOSCAN.
+Revenge burned in his eyes.
+
+SHADOW 1: "Here's our detailed analysis of the failed operation."
+
+Multiple investor testimonies appear on screen
+
+"I was saved by an alert from a warning system called RYOSCAN"
+"Seems to be new detection technology, incredibly accurate"
+
+SHADOW 2: "All investors testify they were saved by this detection system called 'RYOSCAN Prototype'."
+
+SHADOW 1: "What about reports from our operatives?"
+
+SHADOW 3: "Appears to be a system combining pattern recognition and statistical analysis. However, the detailed mechanism is unknown. The developers are also hidden."
+
+SHADOW 1: "Every detection system has technical limitations. We just need to reverse-engineer their mechanism and develop an unbreakable method."
+
+SHADOW 2: "Specifically?"
+
+SHADOW 1: "Distribution theory. If their system is pattern-recognition based, completely distributing the pattern makes it undetectable."
+
+SHADOW 1: "As engineers, there's no way we can't surpass them. Our next operation will use a 'Distributed Flash Loan Network'."
+
+A complex diagram appears on screen.
+It's a blueprint cleverly combining existing scam methods.
+
+SHADOW 1: "First, we gain trust through 'Mirror Trading'. Copy real success stories and advertise identical performance."
+
+"Next, we set up small 'Liquidity Pools' with embedded 'Honeypot Contracts' across seven different exchanges."
+
+SHADOW 3: "Each one is small, so they won't raise suspicion..."
+
+SHADOW 1: "Exactly. Then in the final stage, a 'Flash Loan attack' using 'Atomic Swap'."
+
+"Within one transaction, simultaneously borrow funds from all pools, instantly anonymize through DEX aggregators."
+
+"Execution time within a single block, about 3.7 seconds. Technically perfect."
+
+SHADOW 2: "So no one can detect distributed malice."
+
+SHADOW 1: "That's right. Each pool has different contract addresses, different token pairs, different yield settings."
+
+"No surface connections whatsoever. This operation is codenamed 'Spider's Web'."
+
+They didn't know yet
+
+What RYOCHAN sees isn't code, but the 'Ki of malice' itself.
+
+========== Scene 2: The Moment of Innovation ==========
+
+Next morning, Sakura's apartment.
+RYOCHAN was curled up sleeping by the window, but
+
+his breathing was shallow, visibly weakened.
+
+SAKURA: "RYOCHAN, are you okay?"
+
+RYOCHAN: "Ugh... my head hurts... invisible spider webs spread throughout the city... but they're so thin, I might not be able to see the whole thing alone..."
+
+Sakura picked up RYOCHAN worriedly, then suddenly remembered her grandfather's words...
+
+SAKURA: "..."
+
+"..."
+
+SAKURA: "That's it! The scroll!! It says here!"
+
+SAKURA: "'Ki' amplifies when shared... meaning even if one person's power has limits...!"
+
+Sakura rushed to her computer and began developing a new program.
+
+SAKURA: "RYOCHAN, I'll technically analyze your power and create a system to distribute it as small 'fragments'."
+
+Beautiful code flows across the screen.
+Blockchain technology fuses with a special algorithm digitizing RYOCHAN's 'Ki' wavelength.
+
+SAKURA: "Look! This is the RYO-CHAN Token... the 'Ki Fragment'."
+
+What appeared on screen was an adorable digital token featuring RYOCHAN dressed as a tiny samurai.
+
+Wearing miniature warrior armor, emitting blue-white light, pulsing as if breathing.
+
+RYOCHAN: "This is... just like me! So cute!"
+
+SAKURA: "That's right. People who hold this token can activate RYOSCAN on their smartphones or PCs. They can share part of your ability."
+
+========== Scene 3: Emergency Discovery ==========
+
+At that moment, multiple alerts rang out from the computer.
+
+SAKURA: "This is... small-scale abnormal trades happening simultaneously on seven different exchanges?"
+
+A world clock appears on screen, showing the current time as 5:30 PM.
+
+RYOCHAN: "I have a bad feeling... this malicious 'Ki' is waiting for some timing..."
+
+SAKURA: "Timing?"
+
+RYOCHAN concentrated, trying to read the flow of 'Ki'.
+
+RYOCHAN: "Midnight... something might happen in 6 hours 30 minutes! A big 'harvest' might begin!"
+
+Suddenly, a large red countdown appears on screen.
+
+【TIME LIMIT: 06:30:00】
+
+SAKURA: "A time bomb...!"
+
+【TIME LIMIT: 06:29:45】
+
+RYOCHAN: "We need to hurry..."
+
+【TIME LIMIT: 06:29:30】
+
+========== Scene 4: Emergency Community Assembly ==========
+
+Sakura hurriedly contacted her fellow researchers.
+
+SAKURA: "Everyone, this is an emergency! Please join the online meeting immediately!"
+
+【TIME LIMIT: 06:00:00】
+
+Thirty minutes later, YUKI, HARUTO and several other members gathered in the online meeting.
+
+SAKURA: "We don't have time. Only 6 hours left until midnight. Multiple scam projects are preparing to steal funds simultaneously."
+
+【TIME LIMIT: 05:58:30】
+
+YUKI: "But what can we do..."
+
+SAKURA: "Look at this."
+
+Sakura displays the 'Ki Fragment' RYO-CHAN Token on screen.
+The tiny samurai RYOCHAN bows adorably on the display.
+
+SAKURA: "When you hold this token in your wallet, you can use RYOSCAN's detection function on your device. It's a system that technically reproduces RYOCHAN's abilities."
+
+【TIME LIMIT: 05:55:15】
+
+HARUTO: "Unbelievable... this is revolutionary technology."
+
+RYOCHAN: "Everyone... my power alone has reached its limit. But together with everyone, we might be able to find the distributed malice..."
+
+The members received RYO-CHAN Tokens and activated RYOSCAN on their respective devices.
+
+========== Scene 5: Beginning Distributed Detection ==========
+
+【TIME LIMIT: 03:45:00】
+
+YUKI: "Wow! I can really use RYOSCAN on my smartphone!"
+
+HARUTO: "I'll run a detailed scan of my assigned area..."
+
+Each member begins scanning different regions and exchanges.
+Individually they can only detect small anomalies, but when the data is integrated, the full picture of the sophisticated scam network emerges.
+
+【TIME LIMIT: 03:40:30】
+
+SAKURA: "Look! All seven projects are connected!"
+
+【TIME LIMIT: 02:30:00】
+
+HARUTO: "This is... unbelievable. It's preparation for a Flash Loan attack. Moreover, designed to execute everything within a single transaction by combining Atomic Swap and DEX aggregators... As an engineer, I'm honestly impressed by this sophistication. If only this technical skill were used for good, what wonderful systems could be created..."
+
+YUKI: "HARUTO-san, this isn't the time to be impressed..."
+
+HARUTO: "Ah, sorry. But it really is advanced. Each pool is a completely independent contract with no visible surface connections. Normal audits would never detect this."
+
+RYOCHAN: "But how do we inform everyone?"
+
+========== Scene 6: Persuasion Strategy ==========
+
+【TIME LIMIT: 02:00:00】
+
+SAKURA: "First, let's identify each project's investor communities. People active on Discord, Telegram, X (formerly Twitter)."
+
+YUKI: "But if we suddenly say 'it's a scam,' they won't believe us..."
+
+HARUTO: "That's right. Especially since this method is extremely sophisticated, difficult for general investors to understand. They might think we're 'haters spreading FUD (Fear, Uncertainty, Doubt).'"
+
+【TIME LIMIT: 01:55:30】
+
+Sakura thought deeply.
+
+SAKURA: "Let's approach this strategically. First, identify influential trusted figures in each community. Present technical evidence to them for understanding."
+
+RYOCHAN: "Technical evidence?"
+
+SAKURA: "We'll visualize RYOSCAN's analysis results. Mirror Trading disguise methods, Honeypot Contract concealment techniques, Flash Loan preparation status... with detailed explanations of each method. Solid evidence that engineers can understand."
+
+【TIME LIMIT: 01:30:00】
+
+========== Scene 7: Multi-layered Persuasion Operation ==========
+
+The members divided roles and began action.
+
+【TIME LIMIT: 01:15:00】
+
+HARUTO: "I'll send detailed contract analysis to tech community leaders. That Mirror Trading is just copy-pasting past data, the Honeypot function embedded in Liquidity Pools, and Flash Loan execution code - all with evidence."
+
+YUKI: "I'll explain using diagrams in beginner communities. Making it easy to understand 'why they can promise the same yields' and 'why it's divided into multiple small pools.'"
+
+SAKURA: "I'll post to each exchange's official channels as security warnings."
+
+【TIME LIMIT: 01:00:00】
+
+However, the response was not favorable.
+
+HARUTO: "The tech communities understood, but general investors responded with 'too much technical jargon to understand'..."
+
+YUKI: "Here I'm getting lots of 'Another scam accusation?' and 'You just want to ruin this sweet opportunity' responses."
+
+SAKURA: "The exchanges only respond with 'under investigation'..."
+
+【TIME LIMIT: 00:40:00】
+
+RYOCHAN: "This might not work..."
+
+【TIME LIMIT: 00:35:00】
+
+========== Scene 8: The Final Move ==========
+
+【TIME LIMIT: 00:30:00】
+
+SAKURA: "..."
+
+"..."
+
+...The last resort.
+
+RYOCHAN: "What do you mean?"
+
+SAKURA: "We'll directly demonstrate the danger in real-time."
+
+RYOCHAN: "What are you going to do?"
+
+SAKURA: "Start a livestream and publicly show real-time monitoring with RYOSCAN. We'll show everyone how the Flash Loan attack preparation is progressing."
+
+Sakura hesitated slightly. If they livestream, her and RYOCHAN's identities would become widely known.
+
+They had been operating in secret until now...
+
+【TIME LIMIT: 00:25:00】
+
+SAKURA: "It can't be helped. If it's to protect people, I don't care if our identities are exposed."
+
+【TIME LIMIT: 00:20:00】
+
+Sakura started an emergency livestream. Title: "[EMERGENCY WARNING] Midnight Flash Loan Attack Real-time Monitoring - by RYOSCAN Developer"
+
+The camera clearly shows Sakura and RYOCHAN.
+
+SAKURA: "Good evening everyone. I'm Sakura, developer of RYOSCAN. And this is my partner RYOCHAN. For the next 30 minutes, we'll monitor scam attack preparations in real-time."
+
+【TIME LIMIT: 00:15:00】
+
+The RYOSCAN screen is displayed, showing how the seven projects' fund pools are gradually preparing.
+
+Viewer comment 1: "It's the RYOSCAN developer!"
+Viewer comment 2: "Why is that dog wearing armor?!"
+
+Viewer comment 3: "Wait, is that dog talking?!"
+Viewer comment 4: "Too cute! But what is it??"
+
+【TIME LIMIT: 00:12:50】
+
+HARUTO: "Flash Loan contract gas settings at maximum! Execution ready! Look at this code's beauty... technically it's truly artwork level."
+
+YUKI: "Each pool's liquidity is reaching its peak! Honeypot functions activated!"
+
+【TIME LIMIT: 00:10:00】
+
+Viewer count rapidly increases, the comment section becomes chaotic.
+
+Viewer comment 5: "This is seriously bad! Withdrawing my investment!"
+Viewer comment 6: "Gotta tell my friends!"
+
+Viewer comment 7: "This dog is really talking, right???"
+
+【TIME LIMIT: 00:05:00】
+
+SAKURA: "Five minutes left! If you're still invested, withdraw immediately!"
+
+RYOCHAN: "Please! I want to protect everyone's precious money!"
+
+Viewer comment 8: "The dog is speaking human language!!!"
+Viewer comment 9: "Is this fake? It's not CG, right?"
+
+【TIME LIMIT: 00:02:00】
+
+【TIME LIMIT: 00:01:00】
+
+SAKURA: "Everyone, starting final countdown..."
+
+========== Scene 9: Final Countdown ==========
+
+A huge countdown timer appears on screen.
+
+【10】
+SAKURA: "10..."
+
+【9】
+SAKURA: "9..."
+
+【8】
+SAKURA: "8..."
+
+【7】
+RYOCHAN: "Everyone, run!"
+
+【6】
+SAKURA: "6..."
+
+【5】
+SAKURA: "5..."
+
+【4】
+SAKURA: "4..."
+
+【3】
+SAKURA: "3..."
+
+【2】
+RYOCHAN: "2..."
+
+【1】
+SAKURA: "1..."
+
+【0】
+Midnight 00:00
+
+A breathless silence enveloped the room...
+
+========== Scene 10: Results and Cost ==========
+
+The Flash Loan attack was executed, but many investors who watched the livestream had withdrawn their funds beforehand.
+
+The scammers only obtained about 15% of their planned amount.
+
+SAKURA: "We did it... We were able to protect most investors!"
+
+However, RYOCHAN had collapsed from exhausting his power.
+
+RYOCHAN: "...Did we protect them?"
+
+YUKI: "Thank you, RYOCHAN. Thanks to you, many people were saved."
+
+The livestream comment section overflows with messages of gratitude.
+
+Viewer comments: "Thank you!"
+"I want a RYO-CHAN Token!"
+"Sakura-chan is cute too!"
+"This dog is amazing!"
+
+"Want to find their address and visit!"
+"I want to know that dog's true identity!"
+
+SAKURA: "That's right, RYOCHAN. This time we won with the power of technology and love."
+
+However, Sakura felt anxious seeing some of the stream comments.
+Now that their identities were exposed,
+
+new dangers might be waiting.
+
+========== Scene 11: Engineers' Confusion and New Threats ==========
+
+Late night at the hacker hideout. The leader was confused.
+
+SHADOW 1: "I don't understand... It should have been a perfect technical operation..."
+
+SHADOW 2: "Our analysis showed that system had no function to detect our methods."
+
+SHADOW 3: "Moreover, somehow our preparation stages were being monitored in real-time."
+
+SHADOW 1: "Could it be... something beyond technology is at work?"
+
+The monitor displays failed operation analysis data and recordings of Sakura and RYOCHAN's livestream.
+
+SHADOW 2: "Boss, look at this. There are people in the stream comments trying to identify their address."
+
+SHADOW 1: "Oh... interesting. Now that their identities are exposed, a direct approach has become possible. Next time, let's try more personal methods."
+
+Photos of Sakura and RYOCHAN's faces on screen.
+Around them, multiple windows open searching for their personal information.
+
+The power of 'Ki' distributed through RYO-CHAN Tokens stopped the sophisticated scam.
+
+However, with their identities exposed, new dangers approach.
+
+The enemies who rely on technology haven't yet realized RYOCHAN's true abilities, but next time they might launch more personal and direct attacks...
+
+To be continued...
