@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>RYO-CHAN's Adventure - English Version</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Yuji+Syuku&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 🎯 フォントサイズボタン用追加スタイル */
+        .font-size-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 30;
+        }
+
+        .font-size-button {
+            width: 42px;
+            height: 42px;
+            background: rgba(0,0,0,0.7);
+            border: 1px solid #6366F1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', sans-serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+        }
+
+        .font-size-button span {
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .font-size-button.font-size-large span {
+            font-size: 22px;
+        }
+
+        .font-size-button:hover {
+            background: rgba(99,102,241,0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(99,102,241,0.4);
+        }
+
+        .font-size-button.active {
+            background: rgba(99,102,241,0.7);
+            border-color: #a5b4fc;
+        }
+
+        .font-size-button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .font-size-button.disabled:hover {
+            background: rgba(0,0,0,0.7);
+            transform: none;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .font-size-controls {
+                top: 15px;
+                right: 15px;
+                gap: 6px;
+            }
+
+            .font-size-button {
+                width: 38px;
+                height: 38px;
+            }
+
+            .font-size-button span {
+                font-size: 14px;
+            }
+
+            .font-size-button.font-size-large span {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .font-size-controls {
+                top: 12px;
+                right: 12px;
+            }
+
+            .font-size-button {
+                width: 36px;
+                height: 36px;
+            }
+
+            .font-size-button span {
+                font-size: 13px;
+            }
+
+            .font-size-button.font-size-large span {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== Fullscreen video background ===== -->
+    <video class="title-bg-video" id="titleBgVideo" autoplay loop muted playsinline webkit-playsinline preload="auto">
+        <source src="image/entitle.mp4" type="video/mp4">
+    </video>
+
+    <!-- ===== Japanese Version Switch Button ===== -->
+    <a href="https://ryochan.com/novel/ja/ep1/index.html" class="language-button" id="languageBtn">日本語版へ</a>
+
+    <!-- 📝 フォントサイズコントロール -->
+    <div class="font-size-controls">
+        <button id="fontSizeSmall" class="font-size-button" title="Make text smaller">
+            <span>A</span>
+        </button>
+        <button id="fontSizeLarge" class="font-size-button font-size-large" title="Make text larger">
+            <span>A</span>
+        </button>
+    </div>
+
+    <!-- ===== Loading UI (centered over video) ===== -->
+    <div class="title-screen" id="titleScreen">
+        <div class="loading-container" id="loadingContainer">
+            <div class="loading-bar-outer">
+                <div class="loading-bar-inner" id="loadingBar"></div>
+            </div>
+            <div class="loading-text" id="loadingText">
+                Loading, please wait up to 10 seconds...
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== Main Novel UI ====== -->
+    <div class="novel-container" id="novelContainer" style="display:none;">
+        <div class="background" id="bg1"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo1.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg2"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo2.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg3"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo3.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg4"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo4.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg5"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo5.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg6"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo6.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg7"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo7.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg8"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo8.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg9"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo9.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg10"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo10.mp4" type="video/mp4"></video></div>
+        <div class="background" id="bg11"><video preload="none" loop muted playsinline webkit-playsinline><source src="image/backvideo11.mp4" type="video/mp4"></video></div>
+
+        <div class="text-container" id="textContainer"><div class="text-content" id="textContent"></div></div>
+        <div id="click-prompt">Tap to continue</div>
+
+        <!-- Audio Enable Notice -->
+        <div class="audio-notice" id="audioNotice">
+            <div class="audio-notice-content">
+                <i class="fas fa-volume-up"></i>
+                <span>Tap anywhere to enable audio</span>
+            </div>
+        </div>
+
+        <!-- Enhanced Controls with Scene Navigation -->
+        <div class="controls">
+            <div class="control-button" id="muteButton" title="Sound on/off"><i class="fas fa-volume-up"></i></div>
+            <div class="control-button" id="autoButton" title="Auto play"><i class="fas fa-play"></i></div>
+            <div class="control-button" id="hideTextButton" title="Show/hide text"><i class="fas fa-eye"></i></div>
+            <!-- Scene-based Navigation -->
+            <div class="control-button back-button" id="backSceneButton" title="Previous scene"><i class="fas fa-step-backward"></i></div>
+            <div class="control-button forward-button" id="forwardSceneButton" title="Next scene"><i class="fas fa-step-forward"></i></div>
+        </div>
+
+        <!-- 🗑️ 設定ボタンとパネルを削除 -->
+    </div>
+
+    <div id="effectsContainer"></div>
+    <div class="copyright-notice" id="copyrightNotice">
+        Copyright®︎ RYODIGITAL
+    </div>
+    
+    <!-- スマホブラウザ対応スクリプト -->
+    <script>
+    // ビューポート高度動的調整（スマホブラウザ対応）
+    function setVH() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    // 初期設定
+    setVH();
+    
+    // リサイズとオリエンテーション変更時に再計算
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(setVH, 100);
+    });
+    
+    // iOS Safari対応：スクロール時の再計算
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setVH, 150);
+    });
+    </script>
+    
+    <!-- PC Optimization Script -->
+    <script>
+    (function() {
+        'use strict';
+        
+        // Device detection
+        function isDesktop() {
+            const userAgent = navigator.userAgent;
+            const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+            const isTablet = /iPad|Android/i.test(userAgent) && window.innerWidth >= 768;
+            return !isMobile && !isTablet && window.innerWidth > 600;
+        }
+        
+        // Calculate optimal window size
+        function getOptimalSize() {
+            const idealWidth = 580;   // Optimal width for vertical display (increased from 420)
+            const idealHeight = 900;  // Beautiful aspect ratio height
+            
+            const screenWidth = window.screen.availWidth;
+            const screenHeight = window.screen.availHeight;
+            
+            const centerX = Math.max(50, (screenWidth - idealWidth) / 2);
+            const centerY = Math.max(50, (screenHeight - idealHeight) / 2);
+            
+            return {
+                width: idealWidth,
+                height: idealHeight,
+                left: centerX,
+                top: centerY
+            };
+        }
+        
+        // Open optimal window
+        function openOptimalWindow() {
+            const size = getOptimalSize();
+            const features = [
+                `width=${size.width}`,
+                `height=${size.height}`,
+                `left=${size.left}`,
+                `top=${size.top}`,
+                'resizable=yes',
+                'scrollbars=no',
+                'status=no',
+                'menubar=no',
+                'toolbar=no',
+                'location=no'
+            ].join(',');
+            
+            const currentUrl = window.location.href;
+            const separator = currentUrl.includes('?') ? '&' : '?';
+            const mobileUrl = currentUrl + separator + 'mobile=true';
+            
+            const newWindow = window.open(mobileUrl, 'RyoChanOptimal', features);
+            
+            if (newWindow) {
+                newWindow.focus();
+                setTimeout(() => {
+                    try {
+                        window.close();
+                    } catch(e) {
+                        // If auto-close fails, dim the screen
+                        document.body.style.opacity = '0.3';
+                        document.body.style.pointerEvents = 'none';
+                    }
+                }, 500);
+                return true;
+            }
+            return false;
+        }
+        
+        // Show portal screen
+        function showPortal() {
+            const portalDiv = document.createElement('div');
+            portalDiv.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+                color: white;
+                font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 999999;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            `;
+            
+            portalDiv.innerHTML = `
+                <div style="
+                    text-align: center;
+                    background: rgba(0,0,0,0.85);
+                    border: 2px solid #6366F1;
+                    border-radius: 20px;
+                    padding: 40px;
+                    box-shadow: 0 20px 60px rgba(99,102,241,0.4);
+                    backdrop-filter: blur(15px);
+                    max-width: 480px;
+                    margin: 20px;
+                ">
+                    <div style="
+                        font-size: 2.2rem;
+                        background: linear-gradient(135deg, #6366F1, #a5b4fc);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        margin-bottom: 25px;
+                        font-weight: bold;
+                    ">🎮 RYO-CHAN's Adventure</div>
+                    
+                    <p style="
+                        color: rgba(255,255,255,0.9);
+                        margin-bottom: 30px;
+                        line-height: 1.6;
+                        font-size: 1.1rem;
+                    ">
+                        For the best experience,<br>
+                        opening in vertical mobile display
+                    </p>
+                    
+                    <button id="launchBtn" style="
+                        background: linear-gradient(135deg, #6366F1 0%, #a5b4fc 100%);
+                        border: none;
+                        border-radius: 25px;
+                        padding: 15px 30px;
+                        color: white;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        margin: 8px;
+                        box-shadow: 0 8px 25px rgba(99,102,241,0.4);
+                    ">✨ Start Adventure</button>
+                    
+                    <button id="continueBtn" style="
+                        background: rgba(255,255,255,0.1);
+                        border: 1px solid rgba(255,255,255,0.3);
+                        border-radius: 25px;
+                        padding: 15px 30px;
+                        color: white;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        margin: 8px;
+                    ">💻 Continue Here</button>
+                    
+                    <div style="
+                        color: rgba(255,255,255,0.7);
+                        font-size: 0.9rem;
+                        margin-top: 20px;
+                        line-height: 1.5;
+                    ">
+                        Recommended Resolution: 580×900px<br>
+                        Enjoy the beautiful vertical experience
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(portalDiv);
+            
+            // Fade in
+            setTimeout(() => {
+                portalDiv.style.opacity = '1';
+            }, 100);
+            
+            // Button events
+            const launchBtn = portalDiv.querySelector('#launchBtn');
+            const continueBtn = portalDiv.querySelector('#continueBtn');
+            
+            launchBtn.onmouseover = () => {
+                launchBtn.style.transform = 'translateY(-3px)';
+                launchBtn.style.boxShadow = '0 12px 35px rgba(99,102,241,0.6)';
+            };
+            launchBtn.onmouseout = () => {
+                launchBtn.style.transform = 'translateY(0)';
+                launchBtn.style.boxShadow = '0 8px 25px rgba(99,102,241,0.4)';
+            };
+            
+            continueBtn.onmouseover = () => {
+                continueBtn.style.transform = 'translateY(-3px)';
+                continueBtn.style.background = 'rgba(255,255,255,0.2)';
+            };
+            continueBtn.onmouseout = () => {
+                continueBtn.style.transform = 'translateY(0)';
+                continueBtn.style.background = 'rgba(255,255,255,0.1)';
+            };
+            
+            launchBtn.onclick = () => {
+                const success = openOptimalWindow();
+                if (!success) {
+                    alert('Popup was blocked.\nPlease allow popups and try again.');
+                }
+            };
+            
+            continueBtn.onclick = () => {
+                portalDiv.style.opacity = '0';
+                setTimeout(() => {
+                    portalDiv.remove();
+                }, 500);
+            };
+        }
+        
+        // Initialize
+        function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isMobileMode = urlParams.get('mobile') === 'true';
+            
+            // Show portal only on desktop and not in mobile mode
+            if (isDesktop() && !isMobileMode) {
+                setTimeout(() => {
+                    showPortal();
+                }, 1200); // Show after 1.2 seconds
+            }
+        }
+        
+        // Execute after DOM load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+        
+    })();
+    </script>
+
+    <!-- ========== JavaScript Files ========== -->
+    <script src="storyContent.js"></script>
+    <script src="novel-engine.js"></script>
+</body>
+</html>
